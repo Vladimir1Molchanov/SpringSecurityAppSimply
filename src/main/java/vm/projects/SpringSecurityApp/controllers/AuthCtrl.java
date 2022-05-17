@@ -1,11 +1,7 @@
 package vm.projects.SpringSecurityApp.controllers;
 
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import vm.projects.SpringSecurityApp.model.Role;
 import vm.projects.SpringSecurityApp.model.User;
@@ -22,7 +18,6 @@ public class AuthCtrl {
     }
 
     private final UserService userService;
-    private Authentication authentication;
 
     @GetMapping("/login")
     public String getLoginPage() {
@@ -40,6 +35,6 @@ public class AuthCtrl {
         roles.add(new Role("ADMIN"));
         user.setRoles(roles);
         userService.saveUser(user);
-        return "redirect:/login";
+        return "redirect:/admin";
     }
 }
