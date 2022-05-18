@@ -21,17 +21,19 @@ public class Role implements GrantedAuthority {
     @Column(name = "roleName")
     private String roleName;
     @Column(name = "users")
-    @ManyToMany(targetEntity = User.class, mappedBy = "roles"
-            , fetch = FetchType.EAGER
-    )
+    @ManyToMany(targetEntity = User.class, mappedBy = "roles", fetch = FetchType.EAGER)
     private List<User> users;
 
     public Role(String roleName) {
-        this.roleName = roleName;
+        this.roleName = "ROLE_" + roleName;
+    }
+
+    public String getRoleName() {
+        return new StringBuilder(roleName).substring(5);
     }
 
     @Override
     public String getAuthority() {
-        return roleName;
+        return getRoleName();
     }
 }
