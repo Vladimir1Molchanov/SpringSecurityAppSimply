@@ -88,30 +88,35 @@
                                             </div>
                                             <div class="modal-body row justify-content-center align-items-center text-center">
                                                 <div>
-                                                    <b>ID</b>
                                                     <br>
-                                                    <input class="form-control" th:name="id"
-                                                           th:value="*{user.id}"
-                                                           readonly>
+                                                    <label>
+                                                        <b>ID</b>
+                                                        <input class="form-control" th:name="id"
+                                                               th:value="*{user.id}"
+                                                               readonly>
+                                                    </label>
                                                     <br>
-                                                    <b>First name</b>
+                                                    <label>
+                                                        <b>First name</b>
+                                                        <input name="firstName"
+                                                               th:value="*{user.firstName}"
+                                                               class="form-control">
+                                                    </label>
                                                     <br>
-                                                    <input name="firstName"
-                                                           th:value="*{user.firstName}"
-                                                           class="form-control">
+                                                    <label>
+                                                        <b>Last name</b>
+                                                        <input name="lastName"
+                                                               th:value="*{user.lastName}"
+                                                               class="form-control">
+                                                    </label>
                                                     <br>
-                                                    <b>Last name</b>
-                                                    <input name="lastName"
-                                                           th:value="*{user.lastName}"
-                                                           class="form-control">
-                                                    <br>
-                                                    <b>Age</b>
-                                                    <br>
-                                                    <input name="age" th:value="*{user.age}"
-                                                           class="form-control" type="number">
+                                                    <label>
+                                                        <b>Age</b>
+                                                        <input name="age" th:value="*{user.age}"
+                                                               class="form-control" type="number">
+                                                    </label>
                                                     <br>
                                                     <b>Role</b>
-                                                    <br>
                                                     <select class="custom-select" size="2"
                                                             multiple="multiple"
                                                             name="roles">
@@ -160,31 +165,36 @@
                                             </div>
                                             <div class="modal-body row justify-content-center align-items-center text-center">
                                                 <div>
-                                                    <b>ID</b>
                                                     <br>
-                                                    <input class="form-control" th:name="id"
-                                                           th:value="*{user.id}"
-                                                           readonly="readonly" type="text">
+                                                    <label>
+                                                        <b>ID</b>
+                                                        <input class="form-control" th:name="id"
+                                                               th:value="*{user.id}"
+                                                               readonly="readonly" type="text">
+                                                    </label>
                                                     <br>
-                                                    <b>First name</b>
+                                                    <label>
+                                                        <b>First name</b>
+                                                        <input name="firstName"
+                                                               th:value="*{user.firstName}"
+                                                               class="form-control"
+                                                               readonly>
+                                                    </label>
                                                     <br>
-                                                    <input name="firstName"
-                                                           th:value="*{user.firstName}"
-                                                           class="form-control"
-                                                           readonly>
+                                                    <label>
+                                                        <b>Last name</b>
+                                                        <input name="lastName"
+                                                               th:value="*{user.lastName}"
+                                                               class="form-control"
+                                                               readonly>
+                                                    </label>
                                                     <br>
-                                                    <b>Last name</b>
-                                                    <br>
-                                                    <input name="lastName"
-                                                           th:value="*{user.lastName}"
-                                                           class="form-control"
-                                                           readonly>
-                                                    <br>
-                                                    <b>Age</b>
-                                                    <br>
-                                                    <input name="age" th:value="*{user.age}"
-                                                           class="form-control"
-                                                           readonly>
+                                                    <label>
+                                                        <b>Age</b>
+                                                        <input name="age" th:value="*{user.age}"
+                                                               class="form-control"
+                                                               readonly>
+                                                    </label>
                                                     <br>
                                                     <b>Role</b>
                                                     <br>
