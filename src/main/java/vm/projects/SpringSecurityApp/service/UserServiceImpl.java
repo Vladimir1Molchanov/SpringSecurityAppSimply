@@ -16,63 +16,63 @@ import java.util.Set;
 @Transactional
 public class UserServiceImpl implements UserService {
 
-    private final UserR userR;
-    private final RoleR roleR;
+    private final UserRepository userRepository;
+    private final RoleRepository roleRepository;
     private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    public UserServiceImpl(UserR userR
-            , RoleR roleR
+    public UserServiceImpl(UserRepository userRepository
+            , RoleRepository roleRepository
             , PasswordEncoder passwordEncoder) {
-        this.userR = userR;
-        this.roleR = roleR;
+        this.userRepository = userRepository;
+        this.roleRepository = roleRepository;
         this.passwordEncoder = passwordEncoder;
     }
 
     @Override
     public User findById(long id) {
-        return userR.getOne(id);
+        return userRepository.getOne(id);
     }
 
     @Override
     public List<User> findAll() {
-        return userR.findAll();
+        return userRepository.findAll();
     }
 
     @Override
     public void saveUser(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         Set<Role> roleSet = new HashSet<>();
-        roleSet.add(roleR.getById(1L));
+        roleSet.add(roleRepository.getById(1L));
         user.setRoles(roleSet);
-        userR.save(user);
+        userRepository.save(user);
     }
 
     @Override
     public void updateUser(User user, Long[] roles) {
         Set<Role> roleSet = new HashSet<>();
         for (Long l : roles) {
-            roleSet.add(roleR.getById(l));
+            roleSet.add(roleRepository.getById(l));
         }
-        Optional<User> userOpt = userR.findById(user.getId());
+        Optional<User> userOpt = userRepository.findById(user.getId());
         User updateUser;
         updateUser = userOpt.get();
         updateUser.setFirstName(user.getFirstName());
         updateUser.setLastName(user.getLastName());
         updateUser.setAge(user.getAge());
         updateUser.setRoles(roleSet);
-        userR.save(updateUser);
+        userRepository.save(updateUser);
     }
 
 
     @Override
     public void deleteById(long id) {
-        userR.deleteById(id);
+        userRepository.deleteById(id);
     }
 
     @Override
     public User findByName(String name) {
-        return userR.findByFirstName(name).orElse(new User());
+        return userRepository.findByFirstName(name).orElse(new User());
 
     }
 }
