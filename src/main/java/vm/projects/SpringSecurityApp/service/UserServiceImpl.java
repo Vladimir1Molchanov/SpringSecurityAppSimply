@@ -5,6 +5,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import vm.projects.SpringSecurityApp.model.*;
 import vm.projects.SpringSecurityApp.repository.*;
+
 import javax.transaction.Transactional;
 import java.util.HashSet;
 import java.util.List;
