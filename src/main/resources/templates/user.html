@@ -8,22 +8,26 @@
     <title>Users</title>
 </head>
 <body>
-<div class="row" style="background: rgba(0,0,0,0.85); color: white; margin: 0; padding: 10px">
+<div class="row bg-dark text-white" style="margin: 0; padding: 5px">
     <div class="col-11">
         <td>
             <b th:text="${userName}"></b>
         </td>
         <td th:text="${roles}"></td>
     </div>
-    <div class="col-1" th:href="@{/logout}" style="color: aqua">logout</div>
+    <div class="col-1" style="color: grey"><a th:href="@{/logout}">Logout</a></div>
 </div>
 <div class="row" style="margin-right: 0; margin-left: 0; box-sizing: border-box">
     <div class="col-2" style="background: white; margin-top: 15px; padding: 0">
         <button type="button" class="btn btn-primary btn-block buttonAdmin">User</button>
     </div>
-    <div class="col-10" style="background: grey; padding: 13px;">
+    <div class="col-10" style="background: linear-gradient(to bottom, rgb(240, 240, 240), white);
+          padding: 0">
         <div>
             <h1>User information page</h1>
+            <div class="form-control" style="background: rgb(240, 240, 240)">
+                <h5>About user</h5>
+            </div>
             <table class="table table-striped table-hover table-light">
                 <thead>
                 <tr>
