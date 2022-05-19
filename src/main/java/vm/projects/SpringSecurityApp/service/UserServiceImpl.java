@@ -30,11 +30,6 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User findById(long id) {
-        return userRepository.getOne(id);
-    }
-
-    @Override
     public List<User> findAll() {
         return userRepository.findAll();
     }

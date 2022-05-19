@@ -1,5 +1,6 @@
 package vm.projects.SpringSecurityApp.controller;
 
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -20,14 +21,15 @@ public class AdminController {
 
     @GetMapping
     public String findAll(Model model) {
-        StringBuilder userName = new StringBuilder(SecurityContextHolder.getContext().getAuthentication().getName());
+        Authentication authentication = SecurityContextHolder
+                .getContext()
+                .getAuthentication();
         StringBuilder roles = new StringBuilder(" with roles: ");
-        for (GrantedAuthority role : SecurityContextHolder.getContext().getAuthentication().getAuthorities()){
+        for (GrantedAuthority role : authentication.getAuthorities()) {
             roles.append(" ").append(role.getAuthority());
         }
-        model.addAttribute("userName", userName);
+        model.addAttribute("userName", authentication.getName());
         model.addAttribute("roles", roles);
-
         model.addAttribute("users", userService.findAll());
         return "user-list";
     }
