@@ -60,8 +60,8 @@
                                 <td th:text="${user.firstName}"></td>
                                 <td th:text="${user.lastName}"></td>
                                 <td th:text="${user.age}"></td>
-                                <td th:switch="${dbroles}">
-                                    <div th:each="role : ${dbroles}"
+                                <td>
+                                    <div th:each="role : ${user.roles}"
                                          th:text="${role.roleName}"></div>
                                 </td>
                                 <td>
